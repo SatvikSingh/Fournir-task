@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css'
 
 // Passing required functions inside the component
 const EditableRow = ({ editFormData, cancel, changeEditData }) => {

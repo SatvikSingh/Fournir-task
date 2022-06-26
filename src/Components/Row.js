@@ -15,7 +15,7 @@ const Row = ({ rowData, deleteData, clickEdit }) => {
       <td>
         
         {/* Edit Button */}
-        <button type="button" onClick={(event) => clickEdit(event, rowData)}>
+        <button type="button" onClick={(event) => clickEdit(event, rowData)} style={{marginRight: "7px"}}>
           Edit
         </button>
 

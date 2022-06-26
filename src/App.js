@@ -19,7 +19,6 @@ const test_data = [
 ];
 
 function App() {
-
   // State to save data inside the array of objects created above to be rendered inside the table
   const [data, setData] = useState(test_data);
 
@@ -160,6 +159,7 @@ function App() {
               <th>Miles_Travelled</th>
               <th>Fuel_Used</th>
               <th>Number_Vehicles</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
@@ -177,7 +177,6 @@ function App() {
                     changeEditData={changeEditData}
                   />
                 ) : (
-
                   // Initializing the read only row and passing required functions
                   <Row
                     rowData={rowData}
@@ -192,70 +191,89 @@ function App() {
       </form>
 
       {/* This form is for adding new data to the table */}
-      <form onSubmit={addData}>
+      <div className="addDataForm">
+        <form onSubmit={addData}>
+          {/* Person Location */}
+          <div className="input-field">
+            <label>Person_Location</label>
+            <input
+              type="text"
+              name="personLocation"
+              value={addFormData.personLocation}
+              onChange={changeData}
+            ></input>
+          </div>
 
-        {/* Person Location */}
-        <label>Person_Location</label>
-        <input
-          type="text"
-          name="personLocation"
-          value={addFormData.personLocation}
-          onChange={changeData}
-        ></input>
+          {/* Match Count */}
+          <div className="input-field">
+            <label>Match_Count</label>
+            <input
+              type="text"
+              name="matchCount"
+              value={addFormData.matchCount}
+              onChange={changeData}
+            ></input>
+          </div>
 
-        {/* Match Count */}
-        <label>Match_Count</label>
-        <input
-          type="text"
-          name="matchCount"
-          value={addFormData.matchCount}
-          onChange={changeData}
-        ></input>
+          {/* Time Taken */}
+          <div className="input-field">
+            <label>Time_Taken</label>
+            <input
+              type="text"
+              name="timeTaken"
+              value={addFormData.timeTaken}
+              onChange={changeData}
+            ></input>
+          </div>
 
-        {/* Time Taken */}
-        <label>Time_Taken</label>
-        <input
-          type="text"
-          name="timeTaken"
-          value={addFormData.timeTaken}
-          onChange={changeData}
-        ></input>
+          {/* Miles Travelled */}
+          <div className="input-field">
+            <label>Miles_Travelled</label>
+            <input
+              type="text"
+              name="milesTravelled"
+              value={addFormData.milesTravelled}
+              onChange={changeData}
+            ></input>
+          </div>
 
-        {/* Miles Travelled */}
-        <label>Miles_Travelled</label>
-        <input
-          type="text"
-          name="milesTravelled"
-          value={addFormData.milesTravelled}
-          onChange={changeData}
-        ></input>
+          {/* Fuel Used */}
+          <div className="input-field">
+            <label>Fuel_Used</label>
+            <input
+              type="text"
+              name="fuelUsed"
+              value={addFormData.fuelUsed}
+              onChange={changeData}
+            ></input>
+          </div>
 
-        {/* Fuel Used */}
-        <label>Fuel_Used</label>
-        <input
-          type="text"
-          name="fuelUsed"
-          value={addFormData.fuelUsed}
-          onChange={changeData}
-        ></input>
-
-        {/* Number Vehicles */}
-        <label>Number_Vehicles</label>
-        <input
-          type="text"
-          name="numberVehicles"
-          value={addFormData.numberVehicles}
-          onChange={changeData}
-        ></input>
-
+          {/* Number Vehicles */}
+          <div className="input-field">
+            <label>Number_Vehicles</label>
+            <input
+              type="text"
+              name="numberVehicles"
+              value={addFormData.numberVehicles}
+              onChange={changeData}
+            ></input>
+          </div>
+        </form>
         {/* Add Data buttom */}
-        <button type="submit" onClick={addData}>
-          Add Data
-        </button>
-      </form>
-
+        <center>
+          <button
+            className="add-data-button btn"
+            type="submit"
+            onClick={addData}
+          >
+            Add Data
+          </button>
+        </center>
+      </div>
       {/* Link to generate CSV */}
-      <CSVLink data={data}>Download CSV</CSVLink>
+      <CSVLink className="download-csv-button" data={data}>
+        <span>Download</span><span>CSV</span>
+      </CSVLink>
     </div>
   );
 }
